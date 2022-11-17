@@ -25,7 +25,11 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
+              "node_modules/ngx-spinner/animations/ball-running-dots.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/md-light-indigo/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
 
             ],
             "scripts": [
@@ -95,7 +99,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
+              "node_modules/ngx-spinner/animations/ball-running-dots.css"
             ],
             "scripts": []
           }
@@ -104,6 +111,7 @@
     }
   },
   "cli": {
-    "analytics": "e212afa4-1417-417d-9ce6-d5ac734922c9"
+    "analytics": "75442619-b582-48f3-a377-ff7c57a0096e"
   }
+  
 }

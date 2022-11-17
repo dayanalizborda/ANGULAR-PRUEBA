@@ -75,7 +75,7 @@ export class AuthService {
     this.expirationTimer = null;
   }
 
-  private getItemFromLocalStorage(item: string) {
+  getItemFromLocalStorage(item: string) {
     return localStorage.getItem(item);
   }
 

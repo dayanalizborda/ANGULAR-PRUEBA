@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,12 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SigninComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private auth: AuthService,
     private router: Router
   ) { }
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -27,8 +27,7 @@ export class SigninComponent implements OnInit {
 
   login() {
     this.auth.login(this.form.value).subscribe({
-      next: ((response: any) => {
-        console.log(response);
+      next: (() => {
         this.router.navigate(['/']);
       }),
       error: (e) => console.log(e)
