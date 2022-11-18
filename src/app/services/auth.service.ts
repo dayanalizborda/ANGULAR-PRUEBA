@@ -1,27 +1,27 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { catchError, tap } from 'rxjs/operators';
 import { BehaviorSubject, throwError } from 'rxjs';
 import { Session } from '../models/session.model';
 import { Router } from '@angular/router';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService extends SharedService {
 
   constructor(
-    private http: HttpClient,
-    private router: Router
-  ) {}
-
-  private url = environment.urlServerAPI;
+    private router: Router,
+    http: HttpClient
+  ) {
+    super(http)
+  }
   session = new BehaviorSubject<Session>(null);
   private expirationTimer: any;
 
   login(body: any) {
-    return this.http.post<any>(`${this.url}/authentication/login`, body)
+    return this.post(`authentication/login`, body)
     .pipe(
       catchError(this.handleError),
       tap((response: any) => {
@@ -73,13 +73,5 @@ export class AuthService {
       clearTimeout(this.expirationTimer);
     }
     this.expirationTimer = null;
-  }
-
-  getItemFromLocalStorage(item: string) {
-    return localStorage.getItem(item);
-  }
-
-  private setItemInLocalStorage(item: string, value: any) {
-    localStorage.setItem(item, value);
   }
 }

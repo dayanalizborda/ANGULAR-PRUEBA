@@ -15,6 +15,7 @@ import { InterceptorInterceptor } from './interceptors/interceptor.interceptor';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { TableModule } from 'primeng/table';
 import { PartidosComponent } from './components/partidos/partidos.component';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PartidosComponent } from './components/partidos/partidos.component';
     NgxSpinnerModule,
     ButtonModule,
     InputTextModule,
-    PasswordModule 
+    PasswordModule,
+    TableModule
   ],
   providers: [
     AuthService,
