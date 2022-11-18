@@ -3,23 +3,23 @@ import { SharedService } from 'src/app/services/shared.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-partidos',
+  selector: 'app-parties',
   templateUrl: './partidos.component.html',
   styleUrls: ['./partidos.component.css']
 })
-export class PartidosComponent implements OnInit {
+export class PartiesComponent implements OnInit {
 
   constructor(
     private shared: SharedService
   ) { }
 
-  partidos: any[];
+  parties: any[];
 
   ngOnInit(): void {
     this.shared.getAll('partidos').subscribe({
       next: ((response: any) => {
-        this.partidos = response.parties;
-        console.log(this.partidos);
+        this.parties = response.parties;
+        console.log(this.parties);
       })
     })
   }
