@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-parties',
   templateUrl: './partidos.component.html',
@@ -18,8 +19,14 @@ export class PartiesComponent implements OnInit {
   ngOnInit(): void {
     this.shared.getAll('partidos').subscribe({
       next: ((response: any) => {
-        this.parties = response.parties;
+        this.parties = response.map(party => {
+          return {
+            ...party,
+            _id: party._id['$oid']
+          }
+        })
         console.log(this.parties);
+        console.log(response)
       })
     })
   }
